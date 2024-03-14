@@ -1,6 +1,6 @@
 import React from "react";
 import Cart from "./Cart";
-import demoCarts from "../daraCart";
+import demoCarts from "../demoCart";
 const SalesPage = () => {
   //   let carts = demoCarts;
   return (

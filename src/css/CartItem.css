@@ -1,0 +1,41 @@
+.cart-item {
+  display: flex;
+  flex-direction: column; /* Stack image and details vertically */
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 0; /* Remove padding to allow image to touch the border */
+  transition: 0.3s;
+}
+
+.cart-item:hover {
+  transform: scale(1.05);
+}
+
+.cart-item-image {
+  height: 90%;
+  width: 100%; /* Make width 100% to touch the horizontal borders */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0; /* Adjust border-radius to match .cart-item */
+  margin: 0; /* Remove margin to allow image to touch the border */
+  transition: 0.5s ease;
+}
+
+
+.cart-item-details {
+  text-align: center; /* Center the text for better readability */
+  padding: 20px; /* Add padding here to separate details from the image */
+}
+
+.cart-item-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px; /* Reduced space between title and quantity */
+}
+
+.cart-item-quantity {
+  font-size: 1rem;
+  color: #666;
+}

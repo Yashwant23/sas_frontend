@@ -8,19 +8,21 @@ import InventoryPage from "./components/InventoryPage";
 import SignupPage from "./components/SignUp";
 import LoginPage from "./components/Login";
 import SalesPage from "./components/SalesPage";
+import PriceManagement from "./components/PriceManagement";
 
 const App = () => {
   return (
     <Router>
       <div>
         <NavigationBar />
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category/:categoryName" element={<CategoryPage />} />
           <Route path="/sales-stats" element={<SalesStatisticsPage />} />
           <Route path="/inventory" element={<InventoryPage />} />
           <Route path="/sales" element={<SalesPage />} />
-        </Routes>
+        </Routes> */}
+        <PriceManagement />
         {/* <LoginPage /> */}
         {/* <SignupPage /> */}
       </div>
