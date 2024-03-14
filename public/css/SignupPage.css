@@ -1,0 +1,67 @@
+/* SignupPage.css */
+.signup-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background: #f0f8ff; /* Alice Blue */
+  color: #5f6368; /* Material Grey */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.signup-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #5f6368;
+}
+
+.signup-btn {
+  background-color: hsl(122, 63%, 71%); /* Light Green */
+  border: none;
+  color: #3c4043; /* Dark Grey */
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: hsl(
+    122,
+    35%,
+    52%
+  ); /* Slightly darker green for hover effect */
+}
+
+Form.Label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #5f6368;
+}
+
+Form.Control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #ffffff; /* White */
+  border: 1px solid #e0e0e0; /* Light Grey */
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+Form.Control:focus {
+  border-color: #aecbfa; /* Light Blue */
+  box-shadow: 0 0 0 0.2rem rgba(174, 203, 250, 0.25);
+}
+
+Form.Group {
+  margin-bottom: 1rem;
+}
