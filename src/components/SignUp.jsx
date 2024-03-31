@@ -1,7 +1,13 @@
+// Import necessary libraries
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "../css/SignupPage.css";
-const SignupPage = () => {
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+// Define the SignupPage component
+const SignupPage = ({ handleLogin }) => {
+  // Define state variables
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -9,17 +15,37 @@ const SignupPage = () => {
     confirmPassword: "",
   });
 
+  // Define function to handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  // Define function to handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
-    // Add your submission logic here
+    try {
+      // Make API call to authenticate user
+      const response = await axios.post("http://localhost:5000/signup", formData);
+
+      // Store customerId in localStorage
+      localStorage.setItem("customerId", response.data.customerId);
+
+      // Call handleLogin function passed as prop to update the login state
+      handleLogin();
+
+      // Redirect to cart page or any other page
+
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
+    navigate("/cart");
   };
 
+  // Define navigate function from react-router-dom
+  const navigate = useNavigate();
+
+  // Return the JSX for the SignupPage component
   return (
     <div className="signup-container">
       <h2 className="signup-title">Sign Up</h2>
@@ -76,4 +102,5 @@ const SignupPage = () => {
   );
 };
 
+// Export the SignupPage component
 export default SignupPage;

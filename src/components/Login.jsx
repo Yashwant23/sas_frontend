@@ -1,21 +1,45 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
-const LoginPage = () => {
+import axios from "axios";
+
+const LoginPage = ({ handleLogin }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
 
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
-    // Add your login logic here
+    try {
+      // Make API call to authenticate user
+      const response = await axios.post("http://localhost:5000/login", {
+        username: formData.username,
+        password: formData.password,
+      });
+
+      // Assuming the response contains the customerId upon successful login
+      const customerId = response.data.customerId;
+
+      // Store the customerId in localStorage
+      localStorage.setItem("customerId", customerId);
+
+      // Call the handleLogin function passed as prop to update the login state
+      handleLogin();
+
+      console.log("Login successful!");
+      console.log("Submitted Data:", formData);
+    } catch (error) {
+      console.error("Error logging in:", error);
+    }
+    navigate("/cart");
   };
 
   return (

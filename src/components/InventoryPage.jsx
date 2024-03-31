@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import items from "../data.js"; // Assuming you have the items data
 import InventoryItem from "./InventoryItem.jsx";
 
 const InventoryPage = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/items") // Change the URL to match your backend server endpoint
+      .then((response) => response.json())
+      .then((data) => setItems(data))
+      .catch((error) => console.error("Error fetching items:", error));
+  }, []);
+
   return (
     <Container>
       <h1>Inventory</h1>

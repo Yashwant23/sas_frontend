@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from "./Cart";
+import CheckoutCart from "./CheckoutCart";
 import demoCarts from "../demoCart";
 const SalesPage = () => {
   //   let carts = demoCarts;
@@ -8,7 +8,7 @@ const SalesPage = () => {
       <h2>Sales Page</h2>
       <div className="carts">
         {demoCarts.map((cart, index) => (
-          <Cart
+          <CheckoutCart
             key={index}
             cartItems={cart.items}
             totalPrice={cart.totalPrice}

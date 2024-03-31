@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Table from "./Table.jsx";
-import items from "../data.js";
+import axios from "axios";
+
 const SalesStatisticsPage = () => {
-  console.log(items);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/items");
+        setItems(response.data);
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
+
+    fetchItems();
+  }, []);
+
   return (
     <Container>
       <h1>Sales Statistics</h1>

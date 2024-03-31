@@ -1,0 +1,45 @@
+.brand {
+    color: #5a5a5a;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .nav-link {
+    color: #5a5a5a;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-link:hover {
+    background-color: #ececec;
+    border-radius: 5px;
+  }
+  
+  .dropdown-item {
+    color: #5a5a5a;
+    text-decoration: none;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #ececec;
+    border-radius: 5px;
+  }
+  
+  .search-bar {
+    display: flex;
+    alignItems: center;
+    margin-right: 10px;
+  }
+  
+  .search-bar .mr-sm-2 {
+    border-radius: 30px;
+    border: 2px solid #ced4da;
+    padding: 5px 10px;
+  }
+  
+  .search-bar button {
+    border-radius: 30px;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+  

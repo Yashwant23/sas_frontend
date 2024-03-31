@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Banner from './banner';
 import ItemDisplayer from './itemDisplayer';
+import Cart from './Cart';
 
 const CategoryPage = () => {
     const { categoryName } = useParams();
@@ -17,8 +18,11 @@ const CategoryPage = () => {
         borderBottom: '2px solid #4a4a4a', // Bottom border for emphasis
     };
 
+
+
     return (
         <div>
+            {/* <Cart /> */}
             <h1 style={headingStyle}>{categoryName}</h1>
             {/* <Banner
                 images={["https://st.depositphotos.com/1907633/2380/i/450/depositphotos_23805293-stock-photo-medicine-doctor-hand-working-with.jpg"]}
