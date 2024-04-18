@@ -3,9 +3,9 @@ import { Card, Button, Modal } from 'react-bootstrap';
 import axios from 'axios'; // Import axios for making API requests
 import '../css/ItemCard.css'; // Import the CSS file
 
-const ItemCard = ({ image, name, price, details }) => {
+const ItemCard = ({ image, name, price, details, avlQuantity }) => {
     const [showModal, setShowModal] = useState(false);
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(avlQuantity);
     const [isHovered, setIsHovered] = useState(false);
 
     // Event Handlers

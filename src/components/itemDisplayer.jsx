@@ -9,8 +9,9 @@ const ItemDisplayer = (props) => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/items");
+        const response = await axios.get("http://localhost:8080/items");
         setItems(response.data);
+        console.log(response.data)
       } catch (error) {
         console.error("Error fetching items:", error);
       }
@@ -26,14 +27,15 @@ const ItemDisplayer = (props) => {
     <>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {items.map((item) =>
-          item.tag === tag ? (
+          item.category===tag?(
             <ItemCard
               key={item.id}
               image={item.image}
               name={item.name}
-              price={item.price}
+              price={item.sellPrice}
+              avlQuantity={item.avlQuantity}
             />
-          ) : null
+          ):null
         )}
         <br />
 
