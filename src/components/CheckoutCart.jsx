@@ -6,11 +6,12 @@ import { Modal, Button } from "react-bootstrap";
 
 const CheckoutCart = ({ cartItems, totalPrice }) => {
   const [showModal, setShowModal] = useState(false);
+  const [billData, setBillData] = useState(null);
 
   const handleTransaction = () => {
     let items = [];
     let quantities = [];
-    cartItems.map((item) => {
+    cartItems.forEach((item) => {
       items.push(item.name);
       quantities.push(item.quantity);
     });
@@ -19,12 +20,12 @@ const CheckoutCart = ({ cartItems, totalPrice }) => {
       phoneNumber: 123456789,
       items: items,
       quantities: quantities,
-    }
-    console.log(data)
+    };
+
     axios
       .post("http://localhost:8080/sales", data)
       .then((res) => {
-        console.log(res.body)
+        setBillData(res.data);
         setShowModal(true);
       })
       .catch((error) => {
@@ -64,7 +65,18 @@ const CheckoutCart = ({ cartItems, totalPrice }) => {
           <Modal.Title>Transaction Successful!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Your transaction was successful. Thank you for shopping with us!
+          <p>Customer: {billData && billData.customerName}</p>
+          <p>Phone Number: {billData && billData.phoneNumber}</p>
+          <p>Items:</p>
+          <ul>
+            {billData &&
+              billData.items.map((item, index) => (
+                <li key={index}>
+                  {item} - {billData.quantities[index]}
+                </li>
+              ))}
+          </ul>
+          <p>Total Amount: ${billData && billData.totalAmount}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
