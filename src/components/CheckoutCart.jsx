@@ -8,14 +8,22 @@ const CheckoutCart = ({ cartItems, totalPrice }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleTransaction = () => {
-    const data = cartItems.map((item) => ({
-      name: item.name,
-      quantity: item.quantity,
-    }));
-
+    let items = [];
+    let quantity = [];
+    cartItems.map((item) => {
+      items.push(item.name);
+      quantity.push(item.quantity);
+    });
+    const data = {
+      customerName: "Yashwant",
+      phoneNumber: 123456789,
+      items: items,
+      quantity: quantity,
+    }
     axios
-      .put("http://localhost:5000/transaction", data)
+      .post("http://localhost:8080/sales", data)
       .then((res) => {
+        console.log(res.body)
         setShowModal(true);
       })
       .catch((error) => {
