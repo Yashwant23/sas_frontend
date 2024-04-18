@@ -2,12 +2,12 @@ const demoCarts = [
   {
     items: [
       {
-        name: "Product 1",
+        name: "Aloo",
         quantity: 2,
         image: 'https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg',
       },
       {
-        name: "Product 2",
+        name: "Kukure",
         quantity: 1,
         image: 'https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg',
       },
