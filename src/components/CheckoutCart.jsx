@@ -66,13 +66,12 @@ const CheckoutCart = ({ cartItems, totalPrice }) => {
         </Modal.Header>
         <Modal.Body>
           <p>Customer: {billData && billData.customerName}</p>
-          <p>Phone Number: {billData && billData.phoneNumber}</p>
           <p>Items:</p>
           <ul>
             {billData &&
               billData.items.map((item, index) => (
                 <li key={index}>
-                  {item} - {billData.quantities[index]}
+                  {item} - {billData.quantity[index]} x ${billData.amount[index]}
                 </li>
               ))}
           </ul>
