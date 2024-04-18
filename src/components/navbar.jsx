@@ -17,7 +17,7 @@ const NavigationBar = ({ isLoggedIn, handleLogout }) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    {(isLoggedIn && customerId === '3') && (
+                    {
                         <>
                             <Nav.Link as={Link} to="/sales">Sales</Nav.Link>
                             <Nav.Link as={Link} to="/inventory">Inventory</Nav.Link>
@@ -31,33 +31,8 @@ const NavigationBar = ({ isLoggedIn, handleLogout }) => {
                                 <FaShoppingCart />
                             </Nav.Link>
                         </>
-                    )}
-                    {(customerId === '2' && isLoggedIn) && (
-                        <>
-                            <Nav.Link as={Link} to="/sales">Sales</Nav.Link>
-                            <NavDropdown title="Category" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="/category/health">Health</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/category/food">Food</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/category/fruits">Fruits</NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link as={Link} to="/cart">
-                                <FaShoppingCart />
-                            </Nav.Link>
-                        </>
-                    )}
-                    {(customerId !== '2' && customerId !== '3') && (
-                        <>
+                    }
 
-                            <NavDropdown title="Category" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="/category/health">Health</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/category/food">Food</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/category/fruits">Fruits</NavDropdown.Item>
-                            </NavDropdown>
-                            <Nav.Link as={Link} to="/cart">
-                                <FaShoppingCart />
-                            </Nav.Link>
-                        </>
-                    )}
                 </Nav>
                 <Nav className="ml-auto">
                     {isLoggedIn ? (
