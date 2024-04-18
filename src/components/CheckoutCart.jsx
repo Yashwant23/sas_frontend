@@ -9,17 +9,18 @@ const CheckoutCart = ({ cartItems, totalPrice }) => {
 
   const handleTransaction = () => {
     let items = [];
-    let quantity = [];
+    let quantities = [];
     cartItems.map((item) => {
       items.push(item.name);
-      quantity.push(item.quantity);
+      quantities.push(item.quantity);
     });
     const data = {
       customerName: "Yashwant",
       phoneNumber: 123456789,
       items: items,
-      quantity: quantity,
+      quantities: quantities,
     }
+    console.log(data)
     axios
       .post("http://localhost:8080/sales", data)
       .then((res) => {
